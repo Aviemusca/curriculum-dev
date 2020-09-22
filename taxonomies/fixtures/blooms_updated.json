@@ -1,0 +1,12 @@
+[
+{
+    "model": "taxonomies.customusertaxonomy",
+    "pk": 1,
+    "fields": {
+        "title": "Blooms updated",
+        "date_created": "2020-05-18T19:07:51.346Z",
+        "author": 1,
+        "slug": "1-blooms-updated"
+    }
+}
+]

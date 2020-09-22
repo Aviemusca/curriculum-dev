@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/forms.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
+
+
+{% block title %}Create Taxonomy{% endblock %}
+
+{% block content %}
+    <div class="form-container form-small">
+        <form method="POST">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="form-title">New Taxonomy</legend>
+                <div class="form-subtitle"><small class="text-muted">Create a new taxonomy for analysing your curricula. Required fields are denoted by an asterisk *.</small></div>
+
+                {{ form|crispy }}
+            </fieldset>
+            <button class="btn btn-outline-info form-btn-submit" type="submit">Create Taxonomy</button>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+html{
+    scroll-behavior: smooth;
+}
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+
+.banner{
+    padding: 0 4em;
+    margin: 15em auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 6em;
+}
+.banner-main{
+    width: 400px;
+}
+
+ul.banner-list li {
+    margin: 1.5em 0;
+}
+
+.home-content{
+    padding: 0 8em;
+    margin: 8em auto;
+}
+#get-started{
+}
+
+.instructions-section{
+    padding: 0 4em;
+    margin: 2em auto;
+}

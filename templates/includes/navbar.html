@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{% url 'pages:home' %}">Home</a>
+      <a class="navbar-brand mr-4" href="{% url 'pages:about' %}">About</a>
+      <a class="navbar-brand mr-4" href="{% url 'pages:contact' %}">Contact</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="CurriculaMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Curricula</a>
+                      <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu">
+                          <a class="dropdown-item" href="{% url 'curricula:home' %}">Browse Curricula</a>
+                          {% if user.is_authenticated %}
+                            <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'curricula:user' user.username %}">My Curricula</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'curricula:create' %}"><i class="fas fa-plus"></i> Curriculum</a>
+                          {% endif %}
+                      </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="TaxonomiesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Taxonomies</a>
+                      <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu">
+                          <a class="dropdown-item" href="{% url 'taxonomies:home' %}">Browse Taxonomies</a>
+                          {% if user.is_authenticated %}
+                            <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'taxonomies:user' user.username %}">My Taxonomies</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'taxonomies:create' %}"><i class="fas fa-plus"></i> Taxonomy</a>
+                          {% endif %}
+                      </div>
+                  </li>
+              </ul>
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ user.username }}
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                              <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                          </div>
+                      </li>
+                  </ul>
+              {% else %}
+                  <form class="form-inline">
+                      <a href="{% url 'login' %}" class="nav-item nav-link">Log in</a>
+                      <a href="{% url 'signup' %}" class="nav-item nav-link ml-auto">Sign up</a>
+                  </form>
+              {% endif %}
+          </div>
+      </div>
+    </div>
+</nav>

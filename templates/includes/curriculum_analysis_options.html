@@ -1,0 +1,9 @@
+<div class="dropdown">
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle sml" type="button" id="AnalysisdropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-cog"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="AnalysisdropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'curricula:analyses:update' analysis.get_curriculum_slug analysis.get_curriculum_pk analysis.slug %}">Update</a>
+        <a class="dropdown-item" href="{% url 'curricula:analyses:delete' analysis.get_curriculum_slug analysis.get_curriculum_pk analysis.slug %}">Delete</a>
+    </div>
+</div>

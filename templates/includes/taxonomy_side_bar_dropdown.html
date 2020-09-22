@@ -1,0 +1,29 @@
+<div class="dropdown">
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle " type="button" id="StrandSidebarDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-cog"></i>
+    </button>
+    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="StrandSidebarDropdownMenuButton">
+        <li class="dropdown-item"><a href="{% url 'taxonomies:verb_categories:create' object.slug object.pk %}"> <i class="fas fa-plus"></i> Verb Category</a></li>
+
+        {% if object.has_verb_category %}
+		<li class="dropdown-divider"></li>
+		<li class="dropdown-submenu">
+            <a  class="dropdown-item" tabindex="-1">Update Verb Category</a>
+            <ul class="dropdown-menu">
+                {% for category in object.verb_categories.all %}
+                    <li class="dropdown-item"><a tabindex="-1" href="{% url 'taxonomies:verb_categories:update' object.slug object.pk category.slug %}">{{ category.title.title }}</a></li>
+                {% endfor %}
+		    </ul>
+        </li>
+        <li class="dropdown-submenu">
+            <a  class="dropdown-item" tabindex="-1">Delete Verb Category</a>
+            <ul class="dropdown-menu">
+                {% for category in object.verb_categories.all %}
+                    <li class="dropdown-item"><a tabindex="-1" href="{% url 'taxonomies:verb_categories:delete' object.slug object.pk category.slug %}">{{ category.title.title }}</a></li>
+                {% endfor %}
+		    </ul>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+			       

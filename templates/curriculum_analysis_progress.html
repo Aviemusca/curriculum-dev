@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 id="analysis-progress-heading" class="display container" data-url="{% url 'curricula:analyses:curriculum_analysis_progress_data' analysis.get_curriculum_slug analysis.get_curriculum_pk analysis.slug task_id %}" success-url="{% url 'curricula:detail' analysis.get_curriculum_slug %}"></h1>
+
+<!-- Generate curriculum analysis progress bar -->
+    <script type="module" src="{% static 'js/curriculum-analysis-progress-controller.js' %}"></script>
+{% endblock content %}

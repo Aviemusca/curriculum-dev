@@ -1,0 +1,14 @@
+[
+{
+    "model": "strands.strand",
+    "pk": 2,
+    "fields": {
+        "title": "practices and principles",
+        "curriculum": 1,
+        "date_created": "2020-05-18T19:14:34.329Z",
+        "colour": "#444444",
+        "learning_outcome_list": "Students can use abstraction to describe systems and to explain the relationship between wholes and parts\r\nStudents can use a range of methods for identifying patterns and abstract common features\r\nStudents can implement modular design to develop hardware or software modules that perform a specific function\r\nStudents can illustrate examples of abstract models\r\nStudents can use pseudo code to outline the functionality of an algorithm\r\nStudents can construct algorithms using appropriate sequences, selections/conditionals, loops and operators to solve a range of problems, to fulfil a specific requirement\r\nStudents can implement algorithms using a programming language to solve a range of problems\r\nStudents can apply basic search and sorting algorithms and describe the limitations and advantages of each algorithm\r\nStudents can assemble existing algorithms or create new ones that use functions (including recursive), procedures, and module\r\nStudents can explain the common measures of algorithmic efficiency using any algorithms studied\r\nStudents can describe the different components within a computer and the function of those components\r\nStudents can describe the different types of logic gates and explain how they can be arranged into larger units to perform more complex tasks\r\nStudents can describe the rationale for using the binary number system in digital computing and how to convert between binary, hexadecimal and decimal\r\nStudents can describe the difference between digital and analogue input\r\nStudents can explain what is meant by the World Wide Web (WWW) and the Internet, including the client server model, hardware components and communication protocols\r\nStudents can use data types that are common to procedural high-level languages\r\nStudents can use ASCII and Unicode character sets to encode/decode a message and consider the importance of having such standards\r\nStudents can collect, store and sort both continuous and discrete data\r\nStudents can test solutions and decisions to determine their short-term and long-term outcomes\r\nStudents can identify and fix/debug warnings and errors in computer code and modify as required\r\nStudents can critically reflect on and identify limitations in completed code and suggest possible improvements\r\nStudents can explain the different stages in software testing",
+        "slug": "1-practices-and-principles"
+    }
+}
+]

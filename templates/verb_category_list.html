@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if object_list.count == 0 %}
+        <h1 class="mb-3">There are no verb categories in this taxonomy!</h1>
+    {% else %}
+        <h1 class="mb-3">Verb categories in {{ object_list.first.get_taxonomy_title }} ({{ object_list.count }})</h1>
+    {% endif %}
+	{% for object in object_list %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.title }}</a>
+              <small class="text-muted">More info</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'taxonomies:verb_categories:detail' object.get_taxonomy_slug object.get_taxonomy_pk object.slug %}">{{ object.title }}</a></h2>
+            <p class="article-content">Number of verbs: {{ object.verbs.count }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

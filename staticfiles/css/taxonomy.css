@@ -1,0 +1,59 @@
+:root{
+    /****
+     *
+     * Taxonomy grid variables 
+     *
+     ****/
+
+    /* Overall grid variables */
+
+    --num-cols: 1;
+    --num-rows: 5;
+
+    /* Header grid variables */
+    --header-col-start: 1;
+    --header-col-span: var(--num-cols);
+    --header-row-start: 1;
+    --header-row-span: 1;
+
+    /* Main left side grid variables */
+    --left-col-start: 1;
+    --left-col-span: 1;
+    --left-row-start: calc(var(--header-row-start) + var(--header-row-span));
+    --left-row-span: calc(var(--num-rows) - var(--header-row-span)); 
+
+    /* Main right side grid variables */
+    --right-col-start: calc(var(--left-col-start) + var(--left-col-span));
+    --right-col-span: calc(var(--num-cols) - var(--left-col-span));
+    --right-row-start: var(--left-row-start);
+    --right-row-span: var(--left-row-span);
+
+}
+
+/* Make border-box global */
+*, ::before, ::after{
+    box-sizing: border-box
+}
+
+.taxonomy-dashboard{
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr); 
+    grid-template-rows: minmax(auto);
+    grid-gap: 0.5em;
+}
+
+.taxonomy-dashboard-header{
+    grid-column: var(--header-col-start) / span var(--header-col-span);
+    grid-row: var(--header-row-start) / span var(--header-row-span);
+}
+
+
+.taxonomy-dashboard-side-bar{
+    grid-column: var(--left-col-start) / span var(--left-col-span);
+    grid-row: var(--left-row-start) / span var(--left-row-span);
+}
+
+.taxonomy-dashboard-main{
+    grid-column: var(--right-col-start) / span var(--right-col-span);
+    grid-row: var(--right-row-start) / span var(--right-row-span);
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/forms.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
+
+
+{% block title %}Delete Verb Category{% endblock %}
+
+{% block content %}
+    <div class="form-container form-small">
+        <form method="POST">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom form-title">Delete Verb Category</legend>
+                <h4>Are you sure you want to delete the verb category "{{ object.title }}" from the taxonomy "{{ object.get_taxonomy_title}}"?</h4>
+            </fieldset>
+            <a class="btn btn-outline-secondary form-btn-submit" href="{% url 'taxonomies:detail' object.get_taxonomy_slug %}">Cancel</a>
+            <button class="btn btn-outline-danger form-btn-submit" type="submit">Yes, Delete!</button>
+        </form>
+    </div>
+{% endblock content %}

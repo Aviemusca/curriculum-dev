@@ -1,0 +1,137 @@
+/* Styles for the list view card type objects 
+ *
+ *
+ * List Views concerned:
+ *      Curriculum lists
+ *      Taxonomy lists 
+ *
+ *      */
+
+
+.list-box{
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 3em;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+
+.list-header{
+    padding: 1em 1.5em;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border-bottom: solid 1px #cccccc;
+    align-items: start;
+    justify-content: space-between;
+    margin: 0, auto;
+}
+
+.list-title-date{
+    display: flex;
+    flex-direction: column;
+}
+
+a.list-title {
+  color: #444444;
+  text-decoration: none;
+}
+a.list-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+.list-title{
+    font-size: 2.5em;
+}
+.list-date{
+    margin-left: 0.25em;
+}
+
+.list-author{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.list-author-img{
+    height: 35px;
+    width: 35px;
+}
+.list-author-username{
+    font-size: 1.25em;
+}
+
+/* Grid Styles */
+.list-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    box-sizing: border-box;
+}
+
+.list-details {
+    margin: 0.5em 0em;
+    padding: 0.5em 0;;
+    border-right: solid 1px #cccccc;
+    border-radius: 5px;
+}
+
+.list-details li{
+    margin: 1em 0;
+    margin-left: 2.75em;
+}
+
+.list-chart-box{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+}
+.list-chart-box-title{
+    font-size: 1.25em;
+    margin-top: 1em;
+}
+.list-chart{
+    margin: 0 1em;
+    min-width: 300px;
+}
+
+/* Tooltips styling */
+.list-tooltip{
+    position: relative;
+    display: inline-block;
+}
+
+.list-tooltip .list-tooltiptext{
+    visibility: hidden;
+    width: max-content;
+    background-color: #555;
+    color: #eee;
+    text-align: center;
+    padding: 0.25em 1em;
+    border-radius: 10px;
+    margin-left: 1em;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.list-tooltip:hover .list-tooltiptext{
+    visibility: visible;
+}
+/* Paginator styling */
+
+.paginator{
+    padding: 2em 4em;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginator-btn{
+    margin: 1em 0.25em;
+}

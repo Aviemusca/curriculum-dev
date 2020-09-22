@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 2,
+    "fields": {
+        "title": "comprehension",
+        "date_created": "2020-05-18T19:09:47.333Z",
+        "level": 2,
+        "taxonomy": 1,
+        "verb_list": "characterise, characterize, explain, interpret, predict, compare, contrast, rephrase, retell, translate, conclude, describe, discuss, understand, represent, transform",
+        "slug": "1-comprehension"
+    }
+}
+]

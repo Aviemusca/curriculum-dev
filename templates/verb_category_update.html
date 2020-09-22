@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/forms.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
+
+
+{% block title %}Update Verb Category{% endblock %}
+
+{% block content %}
+    <div class="form-container form-medium">
+        <form method="POST">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="form-title">Update Verb Category</legend>
+                <div class="form-subtitle"><small class="text-muted">Update verb category from the taxonomy <em>"{{ object.taxonomy.title }}"</em>. Required fields are denoted by an asterisk *.</small></div>
+
+                {{ form|crispy }}
+            </fieldset>
+            <button class="btn btn-outline-info form-btn-submit" type="submit">Update</button>
+        </form>
+    </div>
+{% endblock content %}

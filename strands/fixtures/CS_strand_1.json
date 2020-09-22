@@ -1,0 +1,14 @@
+[
+{
+    "model": "strands.strand",
+    "pk": 1,
+    "fields": {
+        "title": "core concepts",
+        "curriculum": 1,
+        "date_created": "2020-05-18T19:13:59.268Z",
+        "colour": "#444444",
+        "learning_outcome_list": "Students can describe a systematic process for solving problems and making decisions\r\nStudents can explain how the power of computing enables different solutions to difficult problems\r\nStudents can solve problems by deconstructing them into smaller units using a systematic approach in an iterative fashion\r\nStudents can solve problems using skills of logic\r\nStudents can evaluate alternative solutions to computational problems\r\nStudents can explain the operation of a variety of algorithms\r\nStudents can develop algorithms to implement chosen solutions\r\nStudents can evaluate the costs and benefits of the use of computing technology in automating processes\r\nStudents can use modelling and simulation in relevant situations\r\nStudents can discuss when heuristics should and could be used and explain the limitations of using heuristics\r\nStudents can discuss the complex relationship between computing technologies and society including issues of ethics\r\nStudents can compare the positive and negative impacts of computing on culture and society\r\nStudents can identify important computing developments that have taken place in the last 100 years and consider emerging trends that could shape future computing technologies\r\nStudents can explain when and what machine learning and AI algorithms might be used in certain contexts\r\nStudents can consider the quality of the user experience when interacting with computers and list principles of universal design, including the role of a user interface and the factors that contribute to its usability\r\nStudents can compare two different user interfaces and identify different design decisions that shape the user experience\r\nStudents can describe the role that adaptive technology can play in the lives of people with special needs\r\nStudents can recognise the diverse roles and careers that use computing technologies\r\nStudents can identify features of both staged and iterative design and development processes\r\nStudents can collaborate and assign roles and responsibilities within a team to tackle a computing task\r\nStudents can identify alternative perspectives, considering different disciplines, stakeholders and end users\r\nStudents can read, write, test, and modify computer programs\r\nStudents can reflect and communicate on the design and development process",
+        "slug": "1-core-concepts"
+    }
+}
+]

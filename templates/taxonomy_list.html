@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/list-views.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+{% endblock stylesheets %}
+
+{% block chart_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+{% endblock chart_scripts %}
+
+
+{% block content %}
+    <div class="container col-8">
+        <h1 class="display-4 page-title">Taxonomies</h1>
+        {% for object in object_list %}
+            <article class="list-box">
+                <div class="list-header">
+                    <div class="list-title-date">
+                        <a href="{% url 'taxonomies:detail' object.slug %}"class="list-title display-4">{{ object.title }}</a>
+                        <div class="list-date text-muted"><small>created {{ object.date_created|date }}</small></div>
+                    </div>
+                    <div class="list-author">
+                        <img class="rounded-circle list-author-img" src="{{ object.author.profile.image.url }}">
+                        <a href="{% url 'curricula:user' object.author.username %}"><span class="list-author-username">{{ object.author.username }}</span></a>
+                    </div>
+                </div>
+                <div class="list-body">
+                    <ul class="list-details">
+                        <li><span class="list-tooltip">Categories: {{ object.get_num_verb_categories }}<span class="list-tooltiptext">The total number of verb categories in the taxonomy</span></span></li>
+                        <li><span class="list-tooltip">Total Items: {{ object.get_num_elements }}<span class="list-tooltiptext">The total number of verbs and 'allowed non-verbs' in the taxonomy</span></span></li>
+                        <li><span class="list-tooltip">Allowed Non-Verbs: {{ object.get_num_non_verbs }}<span class="list-tooltiptext">The total number of 'allowed non-verbs' in the taxonomy</span></span></li>
+                        <li><span class="list-tooltip">Unique Items: {{ object.get_num_unique_elements }}<span class="list-tooltiptext">The total number of unique items in the taxonomy</span></span></li>
+                        <li><span class="list-tooltip">Overlap: {{ object.overlap }}<span class="list-tooltiptext">The number of times a specific verb appears simultaneously in 2 categories</span></span></li>
+                    </ul>
+                    <div class="list-chart-box" data-url="{% url 'taxonomies:verb_number_data' object.slug %}">
+                        <div class="list-chart-box-title display-4">Preview</div>
+                        <div class="list-chart"><canvas id="taxonomy-verb-number-chart-{{ object.pk }}" width="50" height="40"></canvas></div>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+    {% include 'includes/pagination.html' %}
+    <!-- Generate the preview charts -->
+    <script type="module" src="{% static 'js/taxonomy_list_preview_chart.js' %}"></script>
+
+{% endblock content%}

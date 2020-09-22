@@ -1,0 +1,56 @@
+{% block chart_scripts %}
+    <script>
+        var y_number_format = [{% for occurrence in category_occurrences.values %} {{ occurrence }}, {% endfor %}];
+        var y_percentage_format = y_number_format.map(x => x / {{ num_LOs }} * 100);
+        $(document).ready(function(){
+            var ctx = document.getElementById('LO_occurrences_in_strand_chart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [{% for category in category_occurrences %} '{{ category.title }}', {% endfor %}],
+                    datasets: [{
+                        label: 'Learning Outcome Occurrences',
+                        data: y_percentage_format,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        text: 'Learning Outcome Occurrences',
+                        display: true
+                    },
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Percentage of learning outcomes'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                    },
+                }
+            });
+        });
+    </script>
+{% endblock chart_scripts %}

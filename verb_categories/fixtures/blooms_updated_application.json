@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 3,
+    "fields": {
+        "title": "application",
+        "date_created": "2020-05-18T19:10:11.567Z",
+        "level": 3,
+        "taxonomy": 1,
+        "verb_list": "apply, calculate, choose, determine, develop, illustrate, organise, organize, present, show, solve, respond, select, task, use, measure, work, modify, process, produce, perform, construct, demonstrate, adapt, convert, send, implement, compute, collaborate, write, assign, tackle, complete, store, fix, prepare, utilise, utilize, control",
+        "slug": "1-application"
+    }
+}
+]

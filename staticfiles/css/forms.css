@@ -1,0 +1,43 @@
+.form-container{
+    background: #ffffff;
+    padding: 2em 2em 1em 2em;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin: 2em auto;
+}
+
+.asteriskField{
+    display: none;
+}
+
+.form-small{
+    max-width: 40em;
+}
+
+.form-medium{
+    max-width: 50em;
+}
+
+.form-large{
+    max-width: 60em;
+}
+
+.form-title{
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 0.5em;
+}
+
+.form-subtitle{
+    margin-bottom: 1.5em;
+}
+
+.form-required{
+    display: none;
+}
+
+.form-btn-submit{
+    margin-bottom: 1em;
+    margin-left: 0.75em;
+}

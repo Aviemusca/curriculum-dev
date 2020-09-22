@@ -1,0 +1,29 @@
+<div class="dropdown">
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle " type="button" id="StrandSidebarDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-cog"></i>
+    </button>
+    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="StrandSidebarDropdownMenuButton">
+        <li class="dropdown-item"><a href="{% url 'curricula:strands:create' object.slug object.pk %}"> <i class="fas fa-plus"></i> Module</a></li>
+
+        {% if object.has_strand %}
+		<li class="dropdown-divider"></li>
+		<li class="dropdown-submenu">
+            <a  class="dropdown-item" tabindex="-1">Update Module</a>
+            <ul class="dropdown-menu">
+                {% for strand in strands %}
+                    <li class="dropdown-item"><a tabindex="-1" href="{% url 'curricula:strands:update' object.slug object.pk strand.slug %}">{{ strand.title.title }}</a></li>
+                {% endfor %}
+		    </ul>
+        </li>
+        <li class="dropdown-submenu">
+            <a  class="dropdown-item" tabindex="-1">Delete Module</a>
+            <ul class="dropdown-menu">
+                {% for strand in strands %}
+                    <li class="dropdown-item"><a tabindex="-1" href="{% url 'curricula:strands:delete' object.slug object.pk strand.slug %}">{{ strand.title.title }}</a></li>
+                {% endfor %}
+		    </ul>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+			       

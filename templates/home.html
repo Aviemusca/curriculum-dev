@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" >
+{% endblock stylesheets %}
+
+{% block chart_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+{% endblock chart_scripts %}
+
+
+
+
+{% load static %}
+{% block content %}
+<div class="container col-12">
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="display-4">Curriculum Analysis</h1>
+            <ul class="banner-list">
+                <li><h3>Analyse the learning outcomes of your curriculum</h3></li>
+                <li><h3>Generate a variety of analysis plots in your curriculum dashboard</h3></li>
+                <li><h3>Create your own custom taxonomies</h3></li>
+                <li><h3>Save your work and come back anytime</h3></li>
+                <li><h3><a href="#get-started">Get started</a> today for free!</h3></li>
+            </ul>
+        </div>
+        <div class="banner-main">
+            <div class="analysis-grid-cat-hit-chart" data-url="{% url 'curricula:analyses:curriculum_hit_count_data' object.slug object.pk analysis.slug %}">
+                <canvas id="curriculum-analysis-chart-{{ analysis.pk }}" width="75" height="60"></canvas>
+            </div>
+        </div>
+    </div>
+    <div id="get-started" class="home-content">
+        <h1>Get Started</h1>
+        <p>Before getting started, you can <a href="{% url 'curricula:home' %}">browse</a> through the public curricula to get an idea of what this application does.</p>
+        <p>Then all you need to do is:</p>
+        <ul class="get-started-list">
+            <li><a href="#create-account">Create an account</a></li>
+            <li><a href="#create-curriculum">Create a curriculum</a></li>
+            <li><a href="#create-module">Create curriculum modules</a></li>
+            <li><a href="#analyse-curriculum">Analyse your curriculum</a></li>
+        </ul>
+    </div>
+    <div id="create-account" class="home-content">
+        <h3>Create an account</h3>
+        <p>In order to create your own curricula and analyse your learning outcomes, you need 
+        to <a href="{% url 'signup' %}">sign up</a> for an account. This is because all your work 
+        is saved to a database so that you can come back and check it out anytime you wish. You will
+        be able to update or delete your content at any time. </p>
+    </div>
+    <div id="create-curriculum" class="home-content">
+        <h3>Create a curriculum</h3>
+        <p>Once you have set up an account, <a href="{% url 'login' %}">sign in</a> to start 
+        creating your own curricula. In the navigation bar at the top of the page you should 
+        now see a 'Curricula' section and a 'Taxonomies' section.
+        To create a new curriculum, click on <span><i class="fas fa-plus"></i> Curriculum</span>:</p>
+        <p><img src="{% static 'imgs/new_curriculum.png' %}"></p>
+        <p>Fill out the form and a new curriculum dashboard will be generated for you, which 
+        should look something like: </p>
+        <p><img style="width: 100%;" src="{% static 'imgs/curriculum_dashboard.png' %}"></p>
+        <p>In our example, we named our curriculum 'Computer Science' and made it public
+        by ticking the 'public' check-box in the form. If you didn't tick the check-box you should
+        see a red button labeled 'private' instead. All public curricula may be 
+        <a href="{% url 'curricula:home' %}">browsed</a> by other users. You can toggle between 
+        'public' and 'private' by clicking on the button in the dashboard. The 'Update Curriculum' button
+        brings you back to the original form where you can update any information and the 'Delete Curriculum'
+        brings you to a new window asking you to confirm if you want to delete the curriculum from the database.
+    </div>
+    <div id="create-module" class="home-content">
+        <h3>Create curriculum modules</h3>
+        <p>In order to start analysing your learning outcomes, you need to create curriculum modules.
+        Each module will contain a list of learning outcomes. To create a new module, click on <span><i class="fas fa-plus"></i> Module</span> in the 'modules' side-bar of your curriculum dashboard:</p>
+        <p><img src="{% static 'imgs/new_module.png' %}"></p>
+        <p>In the form, choose a title and colour for your module. Your module will appear in this colour
+        in all charts. You'll be able to change it later on the fly in the side-bar and your charts will 
+        be update instantly. The important section of the form is the 'Learning Outcome List' field. 
+        Firstly, learning outcomes should be stated in a 
+        semantically coherent fashion. For instance, a suitable learning 
+        outcome would be <em>"Students should be able to solve problems using skills of logic"</em>. 
+        This is in contrast to the bare form <em>"able to solve problems using skills of logic"</em>, which 
+        is sometimes encountered and should <strong>not</strong> be used.
+        Secondly, <strong><em>each learning outcome should be on a separate line</em></strong>, as follows:
+        <p><img src="{% static 'imgs/learning_outcome_list.svg' %}"></p>
+        <p>Then, click on 'Create Module' to generate the new module. Repeat this step for all the modules
+        in your curriculum and you should see each module added to your dashboard side-bar!</p>
+    </div>
+    <div id="analyse-curriculum" class="home-content">
+        <h3>Analyse your curriculum</h3>
+        <p>After adding your first module, you should now see a <span><i class="fas fa-plus"></i> Analysis</span> button appear at the top of your dashboard, next to the other buttons: </p>
+        <p><img src="{% static 'imgs/analysis_button.png' %}"></p>
+        <p>To create a new analysis, click on <span><i class="fas fa-plus"></i> Analysis</span> and choose
+        a taxonomy for your analysis. Here you will have the option of any 'Admin' created taxonomy or your
+        own custom taxonomy, which you can create <a href="{% url 'taxonomies:create' %}">here</a>.
+        You can also <a href="{% url 'taxonomies:home' %}">browse</a> all public taxonomies.</p>
+        <p>Once you have chosen your taxonomy, click 'Start Analysis' to submit the form 
+        and wait for the analysis 
+        to finish. On completion, a link will be provided to you back to the dashboard and you 
+        should see all your analysis charts in the panel to the right. You can create as many analyses
+        as you'd like, simply repeat the process, choose a different taxonomy and find a new analysis
+        added to your dashboard! Note that updating your modules, by entering different learning
+        outcomes for instance, doesn't update your analyses automatically. You will also have to update
+        your analyses, using the 'Update Analysis' button.</p>
+    </div>
+</div>
+<!-- Generate the curriculum hit count charts -->
+<script type="module" src="{% static 'js/curriculum_hit_count_chart.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 5,
+    "fields": {
+        "title": "synthesis",
+        "date_created": "2020-05-18T19:11:16.370Z",
+        "level": 5,
+        "taxonomy": 1,
+        "verb_list": "imagine, create, compile, compose, hypothesise, hypothesize, judge, test, model, reorganise, reorganize, establish, devise, assemble, connect, combine, integrate, formulate, elaborate, collect, structure, design, modify, plan, specify, program, make, write, communicate, store, prepare",
+        "slug": "1-synthesis"
+    }
+}
+]

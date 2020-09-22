@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+    <link href="{% static 'css/curriculum.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/curriculum-analysis.css' %}" rel="stylesheet" >
+{% endblock stylesheets %}
+
+{% block chart_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+{% endblock chart_scripts %}
+
+{% block content %}
+    <div id="curriculum-dashboard" class="dashboard">
+        <!-- Grid header -->
+        <div id="curriculum-dashboard-header" class="dashboard-container">
+            {% include 'includes/curriculum_dashboard_header.html' %}
+        </div>
+
+        <!-- Grid side-bar -->
+        <div id="curriculum-grid-side-bar" class="dashboard-container">
+            {% include 'includes/curriculum_dashboard_side_bar.html' %}
+        </div>
+
+        <!-- Grid analysis-boxes -->
+        {% if object.has_analysis %}
+            {% for analysis in analyses %}
+                <div id="curriculum-analysis-box-{{ forloop.counter }}" class="curriculum-analysis-box dashboard-container">
+                {% include 'includes/curriculum_dashboard_main.html' %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!--Structure the grid layout according to the number of analyses. 
+    Can be further customised by changing variables in the script -->
+    {% if object.has_analysis %}
+        <script src="{% static 'js/generate_curriculum_grid_layout.js' %}"></script>
+    {% endif %}
+
+    <!-- Generate the curriculum hit count charts -->
+    <script type="module" src="{% static 'js/curriculum_hit_count_chart.js' %}"></script>
+    <!-- Generate the curriculum diversity charts -->
+    <script type="module" src="{% static 'js/curriculum_diversity_chart.js' %}"></script>
+    <!-- Generate the curriculum average verbs charts -->
+    <script type="module" src="{% static 'js/curriculum_average_verbs_chart.js' %}"></script>
+    <!-- Generate the curriculum average categories charts -->
+    <script type="module" src="{% static 'js/curriculum_average_categories_chart.js' %}"></script>
+{% endblock content %}
+ 

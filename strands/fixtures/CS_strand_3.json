@@ -1,0 +1,14 @@
+[
+{
+    "model": "strands.strand",
+    "pk": 3,
+    "fields": {
+        "title": "applied learning tasks",
+        "curriculum": 1,
+        "date_created": "2020-05-18T19:15:01.843Z",
+        "colour": "#444444",
+        "learning_outcome_list": "Students can understand and list user needs/requirements before defining a solution\r\nStudents can create a basic relational database to store and retrieve a variety of forms of data types\r\nStudents can use appropriate programming languages to develop an interactive website that can display information from a database that meets a set of users\u2019 needs\r\nStudents can develop algorithms that can find the frequency, mean, median and mode of a data set\r\nStudents can structure and transform raw data to prepare it for analysis\r\nStudents can represent data to effectively communicate in a graphical form\r\nStudents can use algorithms to analyse and interpret data in a way that informs decision-making\r\nStudents can develop a model that will allow different scenarios to be tested\r\nStudents can analyse and interpret the outcome of simulations both before and after modifications have been made\r\nStudents can explain the benefits of using agent-based modelling and how it can be used to demonstrate emergent behaviours\r\nStudents can use and control digital inputs and outputs within an embedded system\r\nStudents can measure and store data returned from an analogue input\r\nStudents can develop a program that utilises digital and analogue inputs\r\nStudents can design automated applications using embedded systems",
+        "slug": "1-applied-learning-tasks"
+    }
+}
+]

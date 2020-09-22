@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/list-views.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+{% endblock stylesheets %}
+
+{% block chart_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+{% endblock chart_scripts %}
+
+
+{% block content %}
+    <div class="container col-8">
+        <h1 class="display-4 page-title">Curricula</h1>
+        {% for object in object_list %}
+            <article class="list-box">
+                <div class="list-header">
+                    <div class="list-title-date">
+                        <a href="{% url 'curricula:detail' object.slug %}"class="list-title display-4">{{ object.title }}</a>
+                        <div class="list-date text-muted"><small>created {{ object.date_created|date }}</small></div>
+                    </div>
+                    <div class="list-author">
+                        <img class="rounded-circle list-author-img" src="{{ object.author.profile.image.url }}">
+                        <a href="{% url 'curricula:user' object.author.username %}"><span class="list-author-username">{{ object.author.username }}</span></a>
+                    </div>
+                </div>
+                <div class="list-body">
+                    <ul class="list-details">
+                        <li><span>Country</span>: <span>{{ object.country.name }}</span></li>
+                        <li>ISCED Level: {{ object.isced_level }}</li>
+                        <li>Modules: {{ object.get_num_strands }}</li>
+                        <li>Learning Outcomes: {{ object.get_num_learning_outcomes }}</li>
+                        <li>Taxonomy Analyses: {{ object.get_num_analyses }}</li>
+                    </ul>
+                    {% if object.has_analysis %}
+                    <div class="list-chart-box" data-url="{% url 'curricula:analyses:curriculum_hit_count_data' object.slug object.pk object.curriculum_analyses.first.slug %}">
+                        <div class="list-chart-box-title display-4">Analysis Preview</div>
+                        <div class="list-chart"><canvas id="curriculum-analysis-chart-{{ object.curriculum_analyses.first.pk }}" width="50" height="40"></canvas></div>
+                    </div>
+                    {% endif %}
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+    {% include 'includes/pagination.html' %}
+    <!-- Generate the preview charts -->
+    <script type="module" src="{% static 'js/curriculum_list_preview_chart.js' %}"></script>
+{% endblock content%}

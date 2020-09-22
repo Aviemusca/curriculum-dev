@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="home-content">
+    <h2>Web Application Technologies</h2>
+    <p>This web application was built using the Python and Javascript programming languages. 
+    It uses the <a target="_blank" href="https://pypi.org/project/spacy/">spaCy</a> python library for natural language processing in order to parse learning 
+    outcomes and identify verbs. Notably, alongside verbs which appear in infinitive form, 
+    this allows for detection of any conjugated verb in a learning outcome. 
+    Since the underlying models of the spaCy library are statistical, 
+    the analyses delivered by this web application will also be statistical.</p>
+    <p>The back-end of the application was built using the <a target="_blank" href="https://www.djangoproject.com/">Django framework</a>, and <a target="_blank" href="https://pypi.org/project/celery/">Celery</a>, for asynchronous task management.</p>
+    <p>The front-end of the application was built using HTML 5, CSS 3 and 'vanilla' Javascript, using
+    AJAX for asynchronous processing.
+    The analysis charts are generated using the <a target="_blank" href="https://www.chartjs.org/">Chartjs</a> and <a target="_blank" href="https://d3js.org/">D3js</a> Javascript libraries.</p>
+</div>
+<div class="home-content">
+<h2 id="terminology">Site Terminology</h2>
+<p>Below are a few terms you may encounter while you are on this site:</p>
+<dl>
+    <dt>Learning Outcome</dt>
+    <dd>A statement of what the learner is expected to know, understand or be able to do on successful completion of a course or programme.
+    <dt>Taxonomy</dt>
+    <dd>A hierarchical model used to classify educational learning outcomes into levels of complexity and specificity.</dd>
+    <dt>Taxonomy Level</dt>
+    <dd>An integer denoting the hierarchical level of abstraction of the verb category within the taxonomy.</dd>
+    <dt>Taxonomy Overlap</dt>
+    <dd>The total number of unique instances across the taxonomy where a verb appears simultaneously in 2 categories. 
+    For instance, a verb appearing in exactly 2 categories contributes a factor of 1 to the total overlap. 
+    However, a verb appearing in exactly 3 categories contributes a factor of 3. </dd>
+</dl>
+</div>
+{% endblock content %}

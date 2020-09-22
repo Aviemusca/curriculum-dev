@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 4,
+    "fields": {
+        "title": "analysis",
+        "date_created": "2020-05-18T19:10:41.863Z",
+        "level": 4,
+        "taxonomy": 1,
+        "verb_list": "analyse, analyze, distinguish, observe, proofread, reason, document, explain, infer, reason, compare, contrast, investigate, separate, advertise, advertize, differentiate, deconstruct, outline, sort, fix",
+        "slug": "1-analysis"
+    }
+}
+]

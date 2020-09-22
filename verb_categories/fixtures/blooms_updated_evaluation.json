@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 6,
+    "fields": {
+        "title": "evaluation",
+        "date_created": "2020-05-18T19:11:42.499Z",
+        "level": 6,
+        "taxonomy": 1,
+        "verb_list": "agree, appreciate, assess, consider, critique, debate, defend, determine, evaluate, interpret, judge, justify, prove, recommend, relate, select, support, value, verify, reflect, suggest, prepare",
+        "slug": "1-evaluation"
+    }
+}
+]

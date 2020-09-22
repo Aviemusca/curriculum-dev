@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/forms.css' %}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block title %}Delete Curriculum Analysis{% endblock %}
+
+{% block content %}
+    <div class="form-container form-small">
+        <form method="POST">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="form-title">Delete Curriculum Analysis</legend>
+                <h4>Are you sure you want to delete the "{{ object.taxonomy }}" taxonomy analysis of the curriculum?</h4>
+            </fieldset>
+            <a class="btn btn-outline-secondary form-btn-submit" href="{% url 'curricula:detail' object.get_curriculum_slug %}">Cancel</a>
+            <button class="btn btn-outline-danger form-btn-submit" type="submit">Yes, Delete!</button>
+        </form>
+    </div>
+{% endblock content %}

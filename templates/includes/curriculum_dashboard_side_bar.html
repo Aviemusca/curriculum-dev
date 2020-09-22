@@ -1,0 +1,34 @@
+{% load static %}
+<!-- This is the side bar portion of the grid, it has flex display -->
+
+<!-- flex section 1 -->
+<div class="strand-side-bar-header">
+    <div class="strand-title">Modules <span class="text-muted">({{ object.get_num_strands }})</span></div>
+    {% if user == object.author %}
+        {% include 'includes/strand_side_bar_dropdown.html' %}
+    {% endif %}
+</div>
+
+<!-- flex section 2 -->
+{% if object.has_strand %}
+    <table class="strand-table">
+        <tr class="strand-table-spacer"></tr>
+        <tr class="strand-table-row">
+            <th class="strand-table-item">Title</th>
+            <th class="strand-table-item"><abbr title="Learning Outcomes">L0s</abbr></th>
+            <th class="strand-table-item">Colour</th>
+        </tr>
+        {% for strand in strands %}
+            <tr class="strand-table-spacer"></tr>
+            <tr class="strand-table-row">
+                <td><span class="strand-table-strand-title">{{ strand.title.title }}</span></td>
+                <td>{{ strand.get_num_learning_outcomes }}</td>
+                <td class="strand-table-colour"><input class="jscolor" id="{{ strand.slug }}" update-url="{% url 'curricula:strands:update_colour' strand.get_curriculum_slug strand.get_curriculum_pk strand.slug %}" value={{ strand.colour }}></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<script src="{% static 'js/jscolor.js' %}"></script>
+<!--- Update the strand colours -->
+<script type="module" src="{% static 'js/strand-color-controller.js' %}"></script>
+

@@ -1,0 +1,14 @@
+[
+{
+    "model": "verb_categories.verbcategory",
+    "pk": 1,
+    "fields": {
+        "title": "knowledge",
+        "date_created": "2020-05-18T19:09:00.371Z",
+        "level": 1,
+        "taxonomy": 1,
+        "verb_list": "identify, name, recite, state, who, what, where, when, why, select, define, describe, label, match, pick, recognise, recognize, list, read, write, outline, retrieve",
+        "slug": "1-knowledge"
+    }
+}
+]

@@ -1,0 +1,32 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Yvan Buggy">
+        <title>LO Analysis - {% block title %}{% endblock %}</title>
+
+        {% include 'includes/stylesheet_srcs.html' %}
+        {% block stylesheets %}{% endblock stylesheets %}
+
+        {% block chart_scripts %}{% endblock chart_scripts %}
+    </head>
+    <body>
+        <header class="site-header">
+            {% include 'includes/navbar.html' %}
+        </header>
+        <main role="main">
+            <div class="row">
+                <div class="container">
+                    {% include 'includes/message_alerts.html' %}
+                    
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </main>
+        {% include 'includes/bootstrap_srcs.html' %}
+    </body>
+</html>

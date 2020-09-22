@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ object.title }}</a>
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <small class="text-muted">Taxonomy - 
+                <a href="{% url 'taxonomies:detail' object.get_taxonomy_slug %}">{{ object.get_taxonomy_title }}</a> ({{ object.get_author_username }})
+            </small>
+            <p class="article-content">Number of items: {{ object.get_num_verbs }}
+              <br>Add num of verbs
+              <br>Add mini Graphs and Average data
+            </p>
+            <div>
+                {% if object.has_verb %}
+                    <span>Verbs: <small class="text-muted"> {{ view.get_verb_string }}</small></span>
+                {% endif %}
+            </div>
+            <div>
+                {% if object.has_non_verb %}
+                    <span>Allowed non-verbs: <small class="text-muted"> {{ view.get_non_verb_string }}</small></span>
+                {% endif %}
+            </div>
+            <div>
+                {% if object.get_author == user %}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" 
+                       href="{% url 'taxonomies:verb_categories:update' object.get_taxonomy_slug object.get_taxonomy_pk object.slug %}">Update
+                    </a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1 ml-2" 
+                       href="{% url 'taxonomies:verb_categories:delete' object.get_taxonomy_slug object.get_taxonomy_pk object.slug %}">Delete
+                    </a>
+                    <a class="btn btn-primary btn-sm mt-1 mb-1 ml-2" 
+                        href="#">Add Verb
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+{% endblock content %}
+ 

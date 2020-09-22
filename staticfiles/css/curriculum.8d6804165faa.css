@@ -1,0 +1,101 @@
+:root {
+
+    /* Outer (curriculum) grid variables */
+    --num-columns: 3;
+    --side-bar-column-span: 1;
+    --header-row-span: 1;
+    --grid-template-columns: repeat(var(--num-columns), 1fr);
+    --grid-side-bar-column-end: calc(1 + var(--side-bar-column-span));
+    --grid-header-row-end: calc(1 + var(--header-row-span));
+
+    /* Inner (analysis) grid variables */
+}
+
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+/* Outer curriculum analysis grid id and class styles */
+
+#curriculum-dashboard{
+    display: grid;
+    grid-template-columns: var(--grid-template-columns);
+    grid-template-rows: minmax(auto);
+    grid-gap: 0.5em;
+}
+
+#curriculum-dashboard-header {
+    grid-column-start: 1;
+    grid-column-end: calc(1 + var(--num-columns));
+    grid-row-start: 1;
+    grid-row-end: calc(1 + var(--header-row-span));
+
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#curriculum-grid-side-bar {
+    grid-column-start: 1;
+    grid-column-end: var(--grid-side-bar-column-end);
+    grid-row-start: calc(1 + var(--header-row-span));
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.curriculum-dashboard-header-secondary{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.curriculum-analysis-box {
+    grid-column-start: calc(1 + var(--side-bar-column-span));
+    grid-column-end: calc(1 + var(--num-columns));
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: var(--analysis-template-columns);
+    grid-template-rows: var(--analysis-template-rows);
+    grid-row-end: 0; /* Default value so */
+}
+
+/* Inner curriculum analysis grid styles */
+
+/* Header styles */
+
+
+/* Side bar styles */
+.strand-side-bar-header{
+    display: flex;
+    justify-content: space-between;
+}
+.strand-title {
+    align-self: center;
+    color: #444444;
+    margin: 0.5em;
+    font-size: 2em;
+}
+.strand-table{
+    width=90%;
+    flush: left;
+    margin: 0.5em;
+}
+.strand-table-row{
+    padding: 5px;
+    height: 1em;
+}
+.strand-table-spacer{
+    height: 2em;
+}
+.strand-table-item{
+}
+
+input.jscolor{
+    width: 5em;
+    border-radius: 10px;
+    border: solid 1px #444444;
+    text-align: center;
+    text-justify: center;
+}
+

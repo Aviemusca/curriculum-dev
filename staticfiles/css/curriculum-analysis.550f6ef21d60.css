@@ -1,0 +1,104 @@
+/* Style sheet for curriculum analyses */
+
+:root {
+    /* Analysis box grid variables.
+     * Each area in the grid is specified by a col and row start,
+     * and a col and row span */
+
+    /* Overall grid variables*/
+    --analysis-num-cols: 13;
+    --analysis-num-rows: 8;
+    --analysis-template-columns: repeat(var(--analysis-num-cols), 1fr);
+    --analysis-template-rows: minmax(auto);
+
+    /* Grid-header variables */
+    --analysis-header-col-start: 1;
+    --analysis-header-col-span: var(--analysis-num-cols);
+    --analysis-header-row-start: 1;
+    --analysis-header-row-span: 1;
+
+    /* Category hit count chart variables */
+    --analysis-cat-hit-chart-col-start: 1;
+    --analysis-cat-hit-chart-col-span: 7; 
+    --analysis-cat-hit-chart-row-start: calc(1 + var(--analysis-header-row-span));
+    --analysis-cat-hit-chart-row-span: calc(var(--analysis-num-rows) - var(--analysis-header-row-span));
+
+    /* Category diversity chart variables */
+    --analysis-diversity-chart-col-start: calc(var(--analysis-cat-hit-chart-col-start) + var(--analysis-cat-hit-chart-col-span));
+    --analysis-diversity-chart-col-span: calc(var(--analysis-num-cols) - var(--analysis-cat-hit-chart-col-span)); 
+    --analysis-diversity-chart-row-start: calc(1 + var(--analysis-header-row-span));
+    --analysis-diversity-chart-row-span: 4;
+
+    /* Average verbs chart variables */
+    --analysis-verbs-chart-col-start: calc(var(--analysis-cat-hit-chart-col-start) + var(--analysis-cat-hit-chart-col-span));
+    --analysis-verbs-chart-col-span: 3;
+    --analysis-verbs-chart-row-start: calc(var(--analysis-diversity-chart-row-start) + var(--analysis-diversity-chart-row-span));
+    --analysis-verbs-chart-row-span: 4;
+
+    /* Average categories chart variables */
+    --analysis-categories-chart-col-start: calc(var(--analysis-verbs-chart-col-start) + var(--analysis-verbs-chart-col-span));
+    --analysis-categories-chart-col-span: 3;
+    --analysis-categories-chart-row-start: calc(var(--analysis-diversity-chart-row-start) + var(--analysis-diversity-chart-row-span));
+    --analysis-categories-chart-row-span: 4;
+
+
+}
+
+/* Curriculum dashboard main header */
+.curriculum-grid-main-header{
+    font-size: 1.5em;
+}
+/* Analysis box styles - each box contains a grid */
+
+.analysis-grid-header {
+    grid-column: var(--analysis-header-col-start) / span var(--analysis-header-col-span);
+    grid-row: var(--analysis-header-row-start) / span var(--analysis-header-row-span);
+
+    padding: 1em 0.75em;
+    margin: 0.5em 0;
+    border-bottom: solid 1px #dddddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+.analysis-title{
+    font-size: 1.5em;
+    margin-left: 0.5em;
+}
+
+.analysis-options{
+    display: flex;
+}
+.analysis-options-item{
+    margin: 0 0.5em;
+}
+.analysis-grid-diversity-chart {
+    grid-column: var(--analysis-diversity-chart-col-start) / span var(--analysis-diversity-chart-col-span);
+    grid-row: var(--analysis-diversity-chart-row-start) / span var(--analysis-diversity-chart-row-span);
+    margin: 1em;
+}
+
+.analysis-grid-cat-hit-chart {
+    grid-column: var(--analysis-cat-hit-chart-col-start) / span var(--analysis-cat-hit-chart-col-span);
+    grid-row: var(--analysis-cat-hit-chart-row-start) / span var(--analysis-cat-hit-chart-row-span);
+    margin: 1em;
+}
+.analysis-grid-average-verbs-chart{
+    grid-column: var(--analysis-verbs-chart-col-start) / span var(--analysis-verbs-chart-col-span);
+    grid-row: var(--analysis-verbs-chart-row-start) / span var(--analysis-verbs-chart-col-span);
+    margin: 1em;
+}
+.analysis-grid-average-categories-chart{
+    grid-column: var(--analysis-categories-chart-col-start) / span var(--analysis-categories-chart-col-span);
+    grid-row: var(--analysis-categories-chart-row-start) / span var(--analysis-categories-chart-col-span);
+    margin: 1em;
+}
+
+@media screen and (max-width: 775px){
+    .analysis-grid-header{
+        flex-direction:column;
+        justify-content: stretch;
+    }
+}

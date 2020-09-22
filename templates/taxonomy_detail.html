@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link href="{% static 'css/taxonomy.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+{% endblock stylesheets %}
+
+{% block chart_scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+{% endblock chart_scripts %}
+
+
+{% block content %}
+    <div id="dashboard" class="col-9 dashboard taxonomy-dashboard">
+        <!-- Dashboard header -->
+        <div id="dashboard-header" class="dashboard-container taxonomy-dashboard-header">
+            {% include 'includes/taxonomy_dashboard_header.html' %}
+        </div>
+        <!-- Dashboard side-bar -->
+        <div id="dashboard-side-bar" class="dashboard-container taxonomy-dashboard-side-bar">
+            {% include 'includes/taxonomy_dashboard_side_bar.html' %}
+        </div>
+        <!-- Dashboard main -->
+        <!--
+        <div id="dashboard-main" class="dashboard-container taxonomy-dashboard-main">
+        </div>
+        -->
+    </div>
+
+    <div id="taxonomy-overlap-chart" data-url="{% url 'taxonomies:overlap_data' object.slug %}"></div>
+    <div id="tooltip"></div>
+<!-- Create a div for the tooltip -->
+<script type="module" src="{% static 'js/taxonomy_overlap_chart.js' %}"></script>
+{% endblock content %}
+ 

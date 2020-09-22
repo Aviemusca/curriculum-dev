@@ -1,0 +1,22 @@
+[
+{
+    "model": "accounts.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$uBsgQhufAtZG$HExQ0aIWQthuVBxlZPw6v2lcpo7RIkjaEry4qk5E1ck=",
+        "last_login": "2020-05-20T14:37:02.663Z",
+        "is_superuser": true,
+        "username": "yvan",
+        "first_name": "",
+        "last_name": "",
+        "email": "yvan@metatech.ie",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-05-18T19:03:20.630Z",
+        "age": 0,
+        "occupation": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

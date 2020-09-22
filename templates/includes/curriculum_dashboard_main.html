@@ -1,0 +1,24 @@
+{% load static %}
+<div class="analysis-grid-header">
+    {% include 'includes/analysis_grid_header.html' %}
+</div>
+<div class="analysis-grid-cat-hit-chart" data-url="{% url 'curricula:analyses:curriculum_hit_count_data' object.slug object.pk analysis.slug %}">
+    <canvas id="curriculum-analysis-chart-{{ analysis.pk }}" width="75" height="60"></canvas>
+</div>
+<div class="analysis-grid-diversity-chart" data-url="{% url 'curricula:analyses:curriculum_diversity_data' object.slug object.pk analysis.slug %}">
+    <canvas id="curriculum-diversity-chart-{{ analysis.pk }}" width="75" height="50"></canvas>
+</div>
+<div class="analysis-grid-average-verbs-chart" data-url="{% url 'curricula:analyses:curriculum_average_verbs_data' object.slug object.pk analysis.slug %}">
+    <canvas id="curriculum-average-verbs-chart-{{ analysis.pk }}" width="75" height="50"></canvas>
+</div>
+<div class="analysis-grid-average-categories-chart" data-url="{% url 'curricula:analyses:curriculum_average_categories_data' object.slug object.pk analysis.slug %}">
+    <canvas id="curriculum-average-categories-chart-{{ analysis.pk }}" width="75" height="50"></canvas>
+</div>
+
+<div id="non-categorised-verbs-{{ analysis.pk }}" class="analysis-grid-non-cat-verbs" >
+{% if analysis.has_non_cat_verb %}
+    Non-Categorised Verbs ({{ analysis.get_num_non_cat_verbs }}): {{ analysis.get_non_cat_verbs }}
+{% else %}
+All verbs in "{{ analysis.get_curriculum_title }}" are categorised in the {{ analysis.get_taxonomy_title }} taxonomy!
+{% endif %}
+</div>
