@@ -4,6 +4,9 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <link href="{% static 'css/home.css' %}" rel="stylesheet" >
 {% endblock stylesheets %}
 
@@ -36,7 +39,7 @@
     </div>
     <div id="get-started" class="home-content">
         <h1>Get Started</h1>
-        <p>Before getting started, you can <a href="{% url 'curricula:home' %}">browse</a> through the public curricula to get an idea of what this application does.</p>
+        <p>Before getting started, you can checkout the <a href="#demo-video">demo video</a> below or <a href="{% url 'curricula:home' %}">browse</a> through the public curricula to get an idea of what this application does.</p>
         <p>Then all you need to do is:</p>
         <ul class="get-started-list">
             <li><a href="#create-account">Create an account</a></li>
@@ -44,6 +47,27 @@
             <li><a href="#create-module">Create curriculum modules</a></li>
             <li><a href="#analyse-curriculum">Analyse your curriculum</a></li>
         </ul>
+    </div>
+    <div class="home-content">
+        <h3>Demo Video</h3>
+        <video 	id="demo-video"
+    			class="video-js"
+				controls
+				preload="auto"
+				width="640"
+				height="264"
+				data-setup="{}"
+		>
+    <source src="{% static 'videos/lohut.mp4' %}" type="video/mp4" />
+    <source src="{% static 'videos/lohut.webm' %}" type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
     </div>
     <div id="create-account" class="home-content">
         <h3>Create an account</h3>
