@@ -1,1 +1,1 @@
-# curriculum-dev-webapp
+# curriculum-dev

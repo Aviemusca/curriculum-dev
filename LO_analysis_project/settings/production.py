@@ -7,7 +7,7 @@ from .base import *
 import django_heroku
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Heroku collectstatic files default
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
