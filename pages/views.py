@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import JsonResponse
 
 from .models import Contact
 from curricula.models import Curriculum
@@ -10,14 +11,6 @@ from .forms import ContactForm
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Get the Admin Computer Science curriculum
-        target_curriculum = Curriculum.objects.filter(author__username='admin').filter(title='Computer Science').first()
-        context['object'] = target_curriculum
-        context['analysis'] = target_curriculum.curriculum_analyses.all().first()
-        return context
 
 
 class AboutPageView(TemplateView):
@@ -30,3 +23,17 @@ class ContactPageView(SuccessMessageMixin, CreateView):
     template_name = 'contact.html'
     success_message = 'Thanks for getting in touch! We will try to get back to you soon.'
     success_url = reverse_lazy('pages:home')
+
+
+def home_page_data(request, **kwargs):
+    """ Return a JSON response with dummy curriculum analysis data for home page chart """
+    labels = ["Knowledge", "Comprehension", "Application", "Analysis", "Synthesis", "Evaluation"]
+    colours = ["AC2CAC", "4C4CD5", "257795"]
+    data = [[11, 9, 13, 7, 3, 6], [11, 9, 18, 8, 4, 3], [2, 6, 11, 2, 8, 3]]
+    return JsonResponse(data={
+        "labels": labels,
+        "colours": colours,
+        "data": data,
+        "numLOs": 59,
+        "analysisPk": '#home',
+        })
